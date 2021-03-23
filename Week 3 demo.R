@@ -59,3 +59,25 @@ gender_data <- subset(managers_data, Gender == "M" & Age > 25,
 gender_data
 
 
+# random sampling
+# sample 3 records from tyhe mannagers data frame
+my_sample <- managers_data[sample(1:nrow(managers_data), 3, replace = FALSE),]
+my_sample
+
+# Can we sample 10 records from the data frame
+my_sample <- managers_data[sample(1:nrow(managers_data), 10, replace = TRUE),]
+my_sample
+
+# sorting data by age
+attach(managers_data)
+new_data <- managers_data[order(Age),]
+new_data
+
+# sort y gender and then age within each gender
+# and store in data frame called sorted_data
+sorted_date <- managers_data[order(Gender, Age), ]
+sorted_date
+
+#save the random sampole file to a cssv file
+write.csv(my_sample, file = "random sample.csv") 
+
